@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/utils/routes.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+    const LoginPage({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -46,12 +47,34 @@ class LoginPage extends StatelessWidget {
              SizedBox(
               height: 30.0,
             ),
-            ElevatedButton(
-              child: Text("Login"),
-              style: TextButton.styleFrom(minimumSize:Size(130, 40)),
-              onPressed: () {
-                Navigator.pushNamed(context,MyRoutes.homenRoute);             },
+            InkWell(
+              onTap: () async{
+                await Future.delayed(Duration(seconds: 1));
+                Navigator.pushNamed(context,MyRoutes.homenRoute); 
+              },
+              child: AnimatedContainer(
+                duration: Duration(seconds: 1),
+                width: 130,
+                height: 40,
+                alignment: Alignment.center,
+                child: Text(
+                  "Login",
+                  style: TextStyle(
+                    color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18,
+                  ),
+                ),
+                decoration: BoxDecoration(
+                 color: Colors.deepPurple,
+                 borderRadius: BorderRadius.circular(8),
+                ),
+              ),
             ),
+            // ElevatedButton(
+             // child: Text("Login"),
+            // style: TextButton.styleFrom(minimumSize:Size(130, 40)),
+             // onPressed: () {
+               // Navigator.pushNamed(context,MyRoutes.homenRoute);             },
+           // ),
             ],           
           ),
         )
